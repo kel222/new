@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Baby Bro</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="shortcut icon" href="tessyBro.jpg" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #ff6b6b;
+            --secondary-color: #4ecdc4;
+            --text-color: #ffffff;
+            --shadow-color: rgba(0, 0, 0, 0.3);
+            --card-bg: rgba(255, 255, 255, 0.15);
+            --button-color: #ff8fab;
+            --button-hover: #ff5d8f;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('bdbcgr.jpg') no-repeat center center/cover;
+            background-attachment: fixed;
+            min-height: 100vh;
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-color);
+            overflow-x: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px var(--shadow-color);
+            animation: fadeIn 1.5s ease-in-out;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            text-shadow: 2px 2px 4px var(--shadow-color);
+            position: relative;
+            display: inline-block;
+            animation: pulse 2s infinite;
+        }
+
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+        }
+
+        .message {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            padding: 0 10px;
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin: 30px auto 20px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+            transform: translateY(0);
+            transition: transform 0.3s ease;
+        }
+
+        .video-container:hover {
+            transform: translateY(-5px);
+        }
+
+        #valentineVideo {
+            width: 100%;
+            aspect-ratio: 16/9;
+            border-radius: 15px;
+            display: block;
+        }
+
+        .click-note {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--button-color);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 16px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 100;
+            animation: bounce 2s infinite;
+        }
+
+        .click-note:hover {
+            background: var(--button-hover);
+            transform: translateX(-50%) scale(1.05);
+        }
+
+        .floating-hearts {
+            position: absolute;
+            animation: floatHearts 5s infinite ease-in-out;
+            z-index: -1;
+            opacity: 0.8;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes floatHearts {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateX(-50%);
+            }
+            50% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+        }
+
+        .signature {
+            margin-top: 30px;
+            font-style: italic;
+            font-weight: 600;
+            color: var(--secondary-color);
+        }
+
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background-color: #f0f;
+            animation: confetti-fall 5s linear infinite;
+            z-index: -1;
+        }
+
+        @keyframes confetti-fall {
+            0% {
+                transform: translateY(-100%) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Mobile Responsive */
+        @media screen and (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+                margin: 10px;
+            }
+
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            .message {
+                font-size: 1rem;
+                padding: 0 5px;
+            }
+
+            .video-container {
+                margin: 20px auto;
+            }
+
+            .click-note {
+                font-size: 14px;
+                padding: 10px 20px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .container {
+                padding: 15px 10px;
+            }
+
+            .message {
+                font-size: 0.9rem;
+                line-height: 1.5;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="click-note" class="click-note">Open Your Birthday Gift! 🎁</div>
+    
+    <div class="container">
+        <h1>Happy Birthday Baby Bro! 🎉</h1>
+        
+        <div class="message">
+            To my amazing baby brother and best friend! Wishing you a day filled with love, laughter, and all your favorite things. May this year bring you incredible adventures, unforgettable memories, and joy beyond measure. I'm so grateful to have you in my life. In next life you gonna be my brother but that gonna be the Big Bro 😍
+        </div>
+        
+        <div class="video-container" id="videoCollage">
+            <iframe id="valentineVideo" src="tessyBroVid.mp4" frameborder="0" allow="autoplay"></iframe>
+        </div>
+        
+        <div class="signature">Love you, Baby Bro! ❤️</div>
+    </div>
+
+    <audio id="bgMusic" preload="auto" loop>
+        <source src="tessyHbdaudio.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const bgMusic = document.getElementById('bgMusic');
+            const clickNote = document.getElementById('click-note');
+            const videoCollage = document.getElementById('videoCollage');
+            const valentineVideo = document.getElementById('valentineVideo');
+            
+            // Create hearts animation
+            function createHearts() {
+                setInterval(() => {
+                    const heart = document.createElement("div");
+                    heart.innerHTML = "❤️";
+                    heart.classList.add("floating-hearts");
+                    heart.style.left = Math.random() * 100 + "vw";
+                    heart.style.top = "100vh";
+                    heart.style.fontSize = Math.random() * 30 + 10 + "px";
+                    document.body.appendChild(heart);
+                    
+                    // Remove heart after animation completes
+                    setTimeout(() => {
+                        heart.remove();
+                    }, 5000);
+                }, 800);
+            }
+            
+            // Create confetti effect
+            function createConfetti() {
+                const colors = ['#ff6b6b', '#4ecdc4', '#ffe66d', '#ff8fab', '#a5dee5'];
+                
+                setInterval(() => {
+                    const confetti = document.createElement("div");
+                    confetti.classList.add("confetti");
+                    confetti.style.left = Math.random() * 100 + "vw";
+                    confetti.style.width = Math.random() * 8 + 5 + "px";
+                    confetti.style.height = Math.random() * 8 + 5 + "px";
+                    confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.animationDuration = Math.random() * 3 + 3 + "s";
+                    document.body.appendChild(confetti);
+                    
+                    // Remove confetti after animation completes
+                    setTimeout(() => {
+                        confetti.remove();
+                    }, 6000);
+                }, 200);
+            }
+            
+            // Play music function
+            function playMusic() {
+                if (bgMusic.paused) {
+                    bgMusic.volume = 0.7;  // Set volume to 70%
+                    bgMusic.play().catch(error => {
+                        console.log("Autoplay failed:", error);
+                        alert("Please click again to enable music!");
+                    });
+                }
+                
+                // Hide the click note button
+                clickNote.style.opacity = "0";
+                setTimeout(() => {
+                    clickNote.style.display = "none";
+                }, 500);
+                
+                // Start animations
+                createHearts();
+                createConfetti();
+            }
+            
+            // Event listener for the "Open your Gift" button
+            clickNote.addEventListener('click', playMusic);
+            
+            // Event listener for the video
+            videoCollage.addEventListener('click', function() {
+                // Pause background music
+                if (!bgMusic.paused) {
+                    bgMusic.pause();
+                    bgMusic.currentTime = 0;
+                }
+                
+                // Set video source with autoplay
+                valentineVideo.src = "tessyBroVid.mp4?autoplay=1";
+                
+                // Make sure video plays
+                const playPromise = valentineVideo.play();
+                if (playPromise !== undefined) {
+                    playPromise.catch(error => {
+                        console.log("Video autoplay failed:", error);
+                    });
+                }
+            });
+            
+            // Make confetti and hearts responsive to window size
+            window.addEventListener('resize', function() {
+                // Clear existing animations if needed
+                document.querySelectorAll('.floating-hearts, .confetti').forEach(el => el.remove());
+            });
+        });
+    </script>
+</body>
+</html>
